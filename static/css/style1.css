@@ -1,0 +1,57 @@
+.friend-item, .neighbor-item {
+    display: flex;
+    align-items: center; /* 垂直对齐中心 */
+    /* margin-left:-1px;     */
+    margin-bottom: 1px; /* 每项底部外边距 */
+    border-bottom: 1px solid #ccc; /* 底部边框 */
+    /* border-left: 1px solid black; */
+    padding-bottom: 1px; /* 底部内边距 */
+}
+
+.friend-pic, .neighbor-pic {
+    width: 10%;  /* 图片宽度 */
+    height: 10%; /* 图片高度 */
+    margin-right: 5px; /* 图片右侧外边距 */
+    border-radius: 5px; /* 圆角效果 */
+}
+.hood-item{
+    /* height 100%; */
+    width: 100%;  /* 正确的属性是 width, 不是 size */
+    /* display: flex; 添加这个属性以使 align-items 生效 */
+    margin-bottom: 1px; /* 每项底部外边距 */
+    padding-left: 10%; /* 底部内边距 */
+    border-bottom: 2px solid black; /* 底部边框 */
+}
+.block-item{
+        /* height 100%; */
+        width: 100%;  /* 正确的属性是 width, 不是 size */
+        /* display: flex; 添加这个属性以使 align-items 生效 */
+        margin-bottom: 1px; /* 每项底部外边距 */
+        padding-left: 10%; 
+        border-bottom: 2px solid black; /* 底部边框 */
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    
+    .threads-container, .messages-container {
+        flex-grow: 1;
+        overflow: auto;
+    }
+    
+    .message-reply {
+        display: flex;
+        margin-top: 10px;
+    }
+    
+    .message-reply textarea {
+        flex-grow: 1;
+        margin-right: 10px;
+    }
+    
+    .message-reply button {
+        width: 100px;
+    }

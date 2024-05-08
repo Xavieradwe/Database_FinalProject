@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h2>Register</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br>
+        <label for="firstName">First Name:</label><br>
+        <input type="text" id="firstName" name="first_name" required><br>
+        <label for="lastName">Last Name:</label><br>
+        <input type="text" id="lastName" name="last_name" required><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+        <label for="description">Self-Description:</label><br>  
+        <textarea id="description" name="profile_description" style = "width: 50%; height: 200px;"></textarea><br>
+        <label for="picture">Profile Picture:</label><br>
+        <input type="file" id="picture" name="profile_picture"><br><br>
+        <input type="submit" value="Register" style = "width: 10%; height: 10%;">
+        <!-- 新增地址输入 -->
+        <!-- <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address" required><br>
+        新增纬度和经度输入
+        <label for="latitude">Latitude:</label><br>
+        <input type="text" id="latitude" name="latitude" required><br>
+        <label for="longitude">Longitude:</label><br>
+        <input type="text" id="longitude" name="longitude" required><br><br> -->
+    </form>
+</body>
+</html>

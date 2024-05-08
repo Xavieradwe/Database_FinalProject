@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>{{ user.username }}'s Profile</h1>
+    <img src="{{ user.profile_picture.url }}" alt="Profile Picture" style = "width:30vh; height:30vh">
+    <p>Email: {{ user.email }}</p>
+    <p>Description: {{ user.profile_description }}</p>
+    <!-- <button onclick="sendFriendRequest({{ user.id }})">Add as Friend</button> -->
+
+    <script>
+    function sendFriendRequest(userId) {
+        fetch(`/api/send_friend_request/${userId}/`, { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Friend request sent!");
+                } else {
+                    alert("Failed to send friend request: " + data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+    </script>
+</body>
+</html>

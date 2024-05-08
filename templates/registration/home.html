@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to MyApp</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+    <main>
+        <p>This is the home page of MyApp.</p>
+        <p>You can login, register, or logout using the links above.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 MyApp. All rights reserved.</p>
+    </footer>
+</body>
+</html>
