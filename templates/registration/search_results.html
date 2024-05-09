@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Messages</title>
+</head>
+<body>
+    <h1>Search Messages</h1>
+    <form action="{% url 'search_messages' %}" method="get">
+        <input type="text" name="query" value="{{ query }}" placeholder="Search messages...">
+        <button type="submit">Search</button>
+    </form>
+    
+    {% if messages %}
+        <h2>Results for "{{ query }}":</h2>
+        <ul>
+            {% for message in messages %}
+                <li>{{ message.body }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No messages found.</p>
+    {% endif %}
+</body>
+</html>

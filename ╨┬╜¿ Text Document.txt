@@ -1,0 +1,145 @@
+INSERT INTO threads (thread_id, initial_message_id, created_time) VALUES
+(8, NULL, '2024-05-08 15:00:00'),
+(9, NULL, '2024-05-09 16:00:00')；
+
+
+INSERT INTO messages ( body, user_id, thread_id, timestamp, latitude, longitude) VALUES
+('This is a test message to test friends message', 1, 8, '2024-05-01 08:00:00', 40.7128, -74.0060),
+('test friends messages from friends user 2', 2, 8, '2024-05-01 08:00:00', 40.7128, -74.0060);
+
+
+
+INSERT INTO recipients (message_id,block_id,hood_id,neighbor_id,user_id) VALUES
+(42,null,null,null, 1);
+
+
+postgres=# select * from recipients;
+ message_id | block_id | hood_id | neighbor_id | user_id
+------------+----------+---------+-------------+---------
+          1 |          |       1 |             |
+          7 |       11 |         |             |
+          8 |          |       1 |             |
+          9 |          |       1 |             |
+         15 |       11 |         |             |
+         19 |       12 |         |             |
+         20 |       13 |         |             |
+         42 |          |         |             |       2
+
+INSERT INTO hoods (name, description) VALUES 
+('Greenwood', 'A quiet and green neighborhood with parks.'),
+('Sunnyside', 'Known for its friendly community and active neighborhood association.'),
+('Maplewood', 'Features an array of shops and historic landmarks.'),
+('Eastview', 'Popular among young professionals for its proximity to downtown.'),
+('Oakridge', 'A family-friendly area with excellent schools and low crime rate.');
+
+
+INSERT INTO blocks (hood_id, name, description, center_latitude, center_longitude, radius) VALUES 
+(1, 'Block 1', 'Northern section of Greenwood', 40.7128, -74.0060, 100),
+(1, 'Block 2', 'Southern section of Greenwood', 40.7138, -74.0070, 120),
+(1, 'Block 3', 'Central area of Sunnyside', 40.7148, -74.0080, 150),
+(2, 'Block 4', 'East side of Maplewood', 40.7158, -74.0090, 130),
+(2, 'Block 5', 'Western border of Eastview', 40.7168, -74.0100, 110),
+(3, 'Block 6', 'Downtown Oakridge', 40.7178, -74.0110, 140),
+(3, 'Block 7', 'Core of Riverdale', 40.7188, -74.0120, 160),
+(4, 'Block 8', 'Pinehurst outskirts', 40.7198, -74.0130, 180),
+(4, 'Block 9', 'Heart of Westwood', 40.7208, -74.0140, 200),
+(5, 'Block 10', 'Central Elmwood', 40.7218, -74.0150, 170);
+
+
+INSERT INTO friendships (user1_id, user2_id, status, creation_date) VALUES 
+(1, 2, 'Accepted', '2024-04-30'),
+(1, 3, 'Pending', '2024-04-30'),
+(1, 4, 'Accepted', '2024-04-30'),
+(2, 3, 'Accepted', '2024-04-30'),
+(2, 4, 'Accepted', '2024-04-30'),
+(2, 5, 'Accepted', '2024-04-30'),
+(3, 4, 'Accepted', '2024-04-30'),
+(4, 5, 'Accepted', '2024-04-30'),
+(3, 5, 'Pending', '2024-05-01');
+
+INSERT INTO locations (address, latitude, longitude) VALUES 
+('1234 Maple Street, Anytown, AT 12345', 35.6895, 139.6917),
+('2345 Oak Street, Oldtown, OT 23456', 35.6896, 139.6918),
+('3456 Pine Street, Newtown, NT 34567', 35.6897, 139.6919),
+('4567 Elm Street, Westtown, WT 45678', 35.6898, 139.6920),
+('5678 Cedar Street, Easttown, ET 56789', 35.6899, 139.6921),
+('6789 Birch Street, Northtown, NT 67890', 35.6900, 139.6922),
+('7890 Ash Street, Southtown, ST 78901', 35.6901, 139.6923),
+('8901 Willow Street, Centertown, CT 89012', 35.6902, 139.6924),
+('9012 Redwood Street, Uptown, UT 90123', 35.6903, 139.6925),
+('0123 Teak Street, Downtown, DT 01234', 35.6904, 139.6926);
+
+INSERT INTO threads (thread_id, topic, initial_message_id,created_time) VALUES
+(1,'test111', 1,  '2024-05-01 08:00:00'),
+(2,'test2222' ,4, '2024-05-02 09:00:00'),
+(3,'test33333' ,5,  '2024-05-03 10:00:00'),
+(4, 'test44444',7,  '2024-05-04 11:00:00'),
+(5, 'test5',NULL,  '2024-05-05 12:00:00'),
+(6,'test6', NULL, '2024-05-06 13:00:00'),
+(7, 'test7',NULL, '2024-05-07 14:00:00'),
+(8,'test8', NULL,  '2024-05-08 15:00:00'),
+(9,'test9', NULL,  '2024-05-09 16:00:00'),
+(10,'test10', NULL,  '2024-05-10 17:00:00');
+
+INSERT INTO threads (thread_id, topic, initial_message_id,created_time) VALUES
+(1,'test111', null,  '2024-05-01 08:00:00'),
+(2,'test2222' ,null, '2024-05-02 09:00:00'),
+(3,'test33333' ,null,  '2024-05-03 10:00:00'),
+(4, 'test44444',null,  '2024-05-04 11:00:00'),
+(5, 'test5',NULL,  '2024-05-05 12:00:00'),
+(6,'test6', NULL, '2024-05-06 13:00:00'),
+(7, 'test7',NULL, '2024-05-07 14:00:00'),
+(8,'test8', NULL,  '2024-05-08 15:00:00'),
+(9,'test9', NULL,  '2024-05-09 16:00:00'),
+(10,'test10', NULL,  '2024-05-10 17:00:00');
+
+
+INSERT INTO messages (subject, body, user_id, thread_id, timestamp, latitude, longitude) VALUES
+(1, 'Hello', 'This is a test message', 1, 1, '2024-05-01 08:00:00', 40.7128, -74.0060),
+(2, 'Meeting', 'Meeting at noon', 2, 1, '2024-05-02 09:00:00', 40.7128, -74.0060),
+(3, 'Lunch', 'Lunch tomorrow?', 3, 1, '2024-05-03 10:00:00', 40.7128, -74.0060),
+
+(4, 'Cancelled', 'Event has been cancelled', 1, 2, '2024-05-04 11:00:00', 40.7128, -74.0060),
+
+(5, 'Rescheduled', 'Rescheduled to next week', 2, 3, '2024-05-05 12:00:00', 40.7128, -74.0060),
+(6, 'Birthday', 'Birthday Party Invitation', 3, 3, '2024-05-06 13:00:00', 40.7128, -74.0060),
+
+(7, 'Conference', 'Conference Reminder', 1, 4, '2024-05-07 14:00:00', 40.7128, -74.0060),
+(8, 'Meetup', 'Tech Meetup this Friday', 2, 4, '2024-05-08 15:00:00', 40.7128, -74.0060),
+(9, 'Project', 'Project deadline approaching', 3, 4, '2024-05-09 16:00:00', 40.7128, -74.0060),
+(10, 'Dinner', 'Dinner Invitation', 5, 4, '2024-05-10 17:00:00', 40.7128, -74.0060);
+
+('Conference', 'test neighbor thread', 1, 5, '2024-05-07 14:00:00', 40.7128, -74.0060),
+('Meetup', 'test neighbor thread2', 2, 5, '2024-05-08 15:00:00', 40.7128, -74.0060),
+('Project', 'test neighbor thread3', 1, 5, '2024-05-09 16:00:00', 40.7128, -74.0060),
+('Dinner', 'test neighbor thread4', 2, 5, '2024-05-10 17:00:00', 40.7128, -74.0060);
+
+INSERT INTO recipients (message_id,block_id,hood_id,neighbor_id,user_id) VALUES
+(1,2,null,null, null),
+(4,null,1,null, null),
+(5,1,null,null, null),
+(7,null,null,null, 1),
+(7,null,null,null, 2),
+(7,null,null,null, 3);
+(11,null,null,1, null),
+(11,null,null,2, null);
+
+
+INSERT INTO follows (block_id,user_id) Values
+(1,1),
+(1,2),
+(2,3),
+(2,4),
+(7,5);
+
+INSERT INTO neighbors (neighbor_id, user_id, neighbor_user_id) VALUES
+(1, 1, 2),
+(2, 2, 3),
+(3, 3, 4),
+(4, 4, 5),
+(5, 1, 3),
+(6, 1, 4),
+(7, 2, 5),
+(8, 3, 5);
+
+
