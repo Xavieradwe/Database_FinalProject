@@ -209,6 +209,11 @@ def user_hoods(request):
     return JsonResponse(list(hoods_data), safe=False)
 
 @login_required
+def blocks_in_hood(request, hood_id):
+
+    return JsonResponse(None, safe=False)
+
+@login_required
 def threads_in_hood(request, hood_id):
     message_ids = Recipients.objects.filter(hood_id=hood_id).values_list('message_id', flat=True).distinct()
     threads = Threads.objects.filter(initial_message_id__in=message_ids).distinct()

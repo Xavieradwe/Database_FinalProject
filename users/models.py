@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
+from django.contrib.gis.db.models import PointField
+
 # Create your models here.
 # This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:
@@ -70,8 +72,11 @@ class Friendships(models.Model):
         db_table = 'friendships'
 
 
-
-
+class Marker(models.Model):
+    name = models.CharField(max_length=255)
+    location = PointField() # from models.PointField
+    def __str__(self):
+        return self.name
 
 class Locations(models.Model):
     location_id = models.AutoField(primary_key=True)

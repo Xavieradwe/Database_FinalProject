@@ -42,7 +42,9 @@ urlpatterns = [
     path('api/create_thread', views.create_thread, name='create_threads'),
     path('api/update_profile/', views.update_profile, name= 'update_profile'),
     path('api/search_messages/', views.search_messages, name='search_messages'),
-
+    path("admin/", admin.site.urls),
+    path(  "api/", include("markers.api") ),
+    path(  "markers/", include("markers.urls"), ),
 
 
 
